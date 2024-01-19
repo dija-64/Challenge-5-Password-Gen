@@ -90,7 +90,14 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  var passwordLength = parseInt(prompt("Enter password. Your password must be between 8 - 128 characters long:"));
+  if (isNaN(passwordLength)) {
+    alert("Please input a password.");
+    return;
+  } else if (passwordLength < 8 || passwordLength > 128) {
+    alert("Password must be between 8 - 128 characters long.");
+    return;
+  };
 }
 
 // Function for getting a random element from an array
@@ -110,8 +117,11 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
-  passwordText.value = password;
+  if (password) {
+    passwordText.value = password;
+  } else {
+    passwordText.value = " ";
+  }
 }
 
 // Add event listener to generate button
