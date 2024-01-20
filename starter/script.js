@@ -37,13 +37,13 @@ function generateRandomPassword() {
 
 
   // Function to prompt user for password options + length check
-  let passwordLength = parseInt(prompt("Enter password. Your password must be between 8 - 128 characters long:"));
+  let passwordLength = parseInt(prompt("How many characters long would you like your password to be? Must be between 8-128 characters."));
 
   if (isNaN(passwordLength)) {
-    alert("Please input password.");
+    alert("Please input number indicating desired password length.");
     return;
   } else if (passwordLength < 8 || passwordLength > 128) {
-    alert("Password must be between 8 - 128 characters long.");
+    alert("Password must be between 8 - 128 characters long. Please input number indicating desired password length.");
     return;
   }
 
@@ -56,7 +56,7 @@ function generateRandomPassword() {
   const addUppercase = confirm("Would you like to include uppercase letters in your password?");
 
   if (!addSpecialChar && !addNumbers && !addLowercase && !addUppercase) {
-    alert("Please select at least one type of character.");
+    alert("Please select at least one type of character for your password.");
     return;
   }
 
@@ -73,13 +73,13 @@ function generateRandomPassword() {
     newPassword += allCharacters.charAt(randomIndex);
   }
 
-  return password;
+  return newPassword;
 
 }
 
 const genPassword = generateRandomPassword();
 if (genPassword) {
-  alert("Your new, randomy generated password is: " + password)
+  alert("Your new, randomy generated password is: " + genPassword)
 
 }
 
