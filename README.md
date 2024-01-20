@@ -3,7 +3,7 @@ A repository for the Module 5 Challenge, JavaScript Random Password Generator
 
 # Installation
 
-Accessible via GitHub Pages
+Accessible via GitHub Pages: https://dija-64.github.io/Challenge-5-Password-Gen/
 
 # Usage
 
