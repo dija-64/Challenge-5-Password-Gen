@@ -36,7 +36,7 @@ function generateRandomPassword() {
   var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 
-  // Function to prompt user for password options + length check
+  // Function to prompt user for password length check
   let passwordLength = parseInt(prompt("How many characters long would you like your password to be? Must be between 8-128 characters."));
 
   if (isNaN(passwordLength)) {
@@ -62,28 +62,28 @@ function generateRandomPassword() {
 
   let allChars = " ";
   if (addSpecialChar) allChars += specialCharacters;
-  if (addNumbers) allChars += numericCharacters
-  if (addLowercase) allChars += lowerCasedCharacters
-  if (addUppercase) allChars += upperCasedCharacters
+  if (addNumbers) allChars += numericCharacters;
+  if (addLowercase) allChars += lowerCasedCharacters;
+  if (addUppercase) allChars += upperCasedCharacters;
 
 
   let newPassword = "";
-  for (let i = 0; i < newPasswordLength; i++) {
+  for (let i = 0; i < passwordLength; i++) {
     const randomIndex = Math.floor(Math.random() * allChars.length);
-    newPassword += allCharacters.charAt(randomIndex);
+    newPassword += allChars.charAt(randomIndex);
   }
 
   return newPassword;
+
 
 }
 
 const genPassword = generateRandomPassword();
 if (genPassword) {
-  alert("Your new, randomy generated password is: " + genPassword)
+  alert("Your new, randomly generated password is: " + genPassword)
 
 }
 
 
 // Add event listener to generate button
-var generateBtn = document.querySelector('#generate');
-generateBtn.addEventListener('click', generateRandomPassword);
+var generateBtn = document.getElementById('generate').addEventListener('click', generateRandomPassword);
